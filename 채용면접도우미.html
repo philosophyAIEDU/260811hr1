@@ -2372,7 +2372,13 @@ function 도구상태확인(){
     if (드롭원래모습[아이디] == null) 드롭원래모습[아이디] = { 내용: 영역.innerHTML, 바뀜: false };
     const 기억 = 드롭원래모습[아이디];
     if (!파일읽기가능 && !기억.바뀜){
-      영역.innerHTML = `<div style="color:var(--주의)">${파일읽기불가안내}</div>`;
+      // PDF·워드는 못 읽어도 텍스트(.txt) 파일은 그대로 열 수 있습니다.
+      const 입력칸 = 아이디 === "드롭-직무" ? "파일-직무" : "파일-이력서";
+      영역.innerHTML =
+        `<div style="color:var(--주의)">${파일읽기불가안내}</div>
+         <button class="버튼 작게" style="margin-top:12px"
+                 onclick="document.getElementById('${입력칸}').click()">텍스트(.txt) 파일 고르기</button>
+         <div class="준비중" style="margin-top:6px">텍스트 파일은 인터넷 없이도 읽을 수 있습니다.</div>`;
       기억.바뀜 = true;
     } else if (파일읽기가능 && 기억.바뀜){
       영역.innerHTML = 기억.내용;
