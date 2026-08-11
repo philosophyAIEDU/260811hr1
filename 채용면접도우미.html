@@ -22,20 +22,21 @@
   --글자중간: #4a535e;
   --글자흐림: #78828d;
 
-  --남색: #1d2438;          /* 왼쪽 메뉴 바탕 */
-  --남색진함: #151a2a;      /* 맨 위 얇은 띠 */
-  --남색연함: #2a3350;      /* 메뉴 위에 마우스 올렸을 때 */
-  --메뉴글자: #b9c0cf;
+  --남색: #22223c;          /* 왼쪽 메뉴 바탕 */
+  --남색진함: #16162a;      /* 맨 위 얇은 띠 */
+  --남색연함: #31314f;      /* 메뉴 위에 마우스 올렸을 때 */
+  --메뉴글자: #b6bccb;
 
-  --강조: #1a4d8f;          /* 버튼·강조 */
-  --강조진함: #143c70;
-  --강조밝음: #3d7fc4;      /* 어두운 바탕 위 강조 */
-  --강조연함: #eaf1f9;
-  --강조테두리: #c2d6ea;
+  --강조: #e11b3c;          /* 진홍색 — 로고·선택된 메뉴·주요 버튼 */
+  --강조진함: #b81430;
+  --강조밝음: #ff4d6d;      /* 어두운 바탕 위 강조선 */
+  --강조연함: #fdedf0;
+  --강조테두리: #f3c7cf;
 
   --좋음: #16704a;  --좋음배경: #eaf5ef;  --좋음선: #bcdfcc;
   --주의: #92620a;  --주의배경: #fdf6e6;  --주의선: #ecd8a6;
-  --나쁨: #a92b23;  --나쁨배경: #fceceb;  --나쁨선: #efc4c1;
+  /* 아래 '나쁨'은 경고용이라, 강조색인 진홍색과 구분되도록 더 짙은 팥색을 씁니다 */
+  --나쁨: #8e1b16;  --나쁨배경: #fbebea;  --나쁨선: #edc3c0;
 
   --그림자: 0 1px 2px rgba(19,29,41,.05), 0 1px 3px rgba(19,29,41,.04);
   --그림자큼: 0 12px 34px rgba(19,29,41,.18);
@@ -90,7 +91,7 @@ a{ color: var(--강조); text-underline-offset: 3px; }
 .머리 .상표{ display:flex; align-items:center; gap:12px; }
 .머리 .표식{
   width:42px; height:42px; flex:0 0 42px; border-radius:10px;
-  background: var(--남색); color:#fff;
+  background: var(--강조); color:#fff;
   display:flex; align-items:center; justify-content:center;
   font-size:16px; font-weight:700; letter-spacing:-0.5px;
 }
@@ -188,7 +189,7 @@ textarea{ line-height:1.7; resize: vertical; }
 input::placeholder, textarea::placeholder{ color:#a6adb5; }
 input:hover, select:hover, textarea:hover{ border-color:#b6bfc9; }
 input:focus, select:focus, textarea:focus{
-  outline:none; border-color: var(--강조); box-shadow: 0 0 0 3px rgba(26,77,143,.13);
+  outline:none; border-color: var(--강조); box-shadow: 0 0 0 3px rgba(225,27,60,.15);
 }
 textarea[readonly]{ background: var(--면흐림); color: var(--글자중간); }
 select{
@@ -232,7 +233,7 @@ tbody tr:hover td{ background: #fafbfd; }
 
 .알림상자{ border-radius:9px; padding: 14px 16px; margin-bottom:16px; font-size:15.5px; border:1px solid; }
 .알림상자.주의{ background: var(--주의배경); border-color: var(--주의선); color:#6d4906; }
-.알림상자.정보{ background: var(--강조연함); border-color: var(--강조테두리); color:#173f6d; }
+.알림상자.정보{ background: #f1f4f8; border-color: #dae1ea; color:#38434f; }
 .알림상자.좋음{ background: var(--좋음배경); border-color: var(--좋음선); color:#0f5537; }
 .알림상자.나쁨{ background: var(--나쁨배경); border-color: var(--나쁨선); color:#8b241d; }
 
@@ -284,7 +285,7 @@ tbody tr:hover td{ background: #fafbfd; }
 /* 알림 */
 #알림띠{ position: fixed; top: 222px; right:30px; z-index: 999; }
 #알림띠 .쪽지{
-  background:#20263a; color:#fff; padding: 12px 20px; border-radius:9px;
+  background:#22223c; color:#fff; padding: 12px 20px; border-radius:9px;
   margin-bottom:8px; font-size:15.5px; font-weight:500; box-shadow: var(--그림자큼);
   animation: 나타남 .18s ease-out;
 }
@@ -1227,7 +1228,7 @@ function 질문한개HTML(문){
   return `
   <div class="질문칸">
     <div style="display:flex; gap:12px; align-items:flex-start">
-      <input type="checkbox" class="인쇄숨김" style="width:18px;height:18px;margin-top:5px;flex:0 0 auto;accent-color:var(--브랜드)"
+      <input type="checkbox" class="인쇄숨김" style="width:18px;height:18px;margin-top:5px;flex:0 0 auto;accent-color:var(--강조)"
              ${문.선택됨 ? "checked" : ""} onchange="질문선택전환(${문.질문번호}, this.checked)">
       <div style="flex:1; min-width:0">
         <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px">
